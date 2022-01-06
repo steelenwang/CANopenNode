@@ -8,39 +8,40 @@ It is necessary to implement interface to specific hardware. Interface to Linux 
 
 Note for device driver contributors
 -----------------------------------
-Most up-to-date implementations of CANopenNode are: socketCAN for Linux, which is part of CANopenNode and [CANopenPIC](https://github.com/CANopenNode/CANopenPIC) for PIC32 microcontroller (bare-metal). Those can be used for reference. There is also an example directory, which doesn't include specific device interface. It should compile on any system and can be used as a template. Device interface is documented in common CO_driver.h file.
+Most up-to-date implementations of CANopenNode are: [CANopenLinux](https://github.com/CANopenNode/CANopenLinux) and [CANopenPIC](https://github.com/CANopenNode/CANopenPIC) for PIC32 microcontroller (bare-metal). Those can be used for reference. There is also an example directory, which doesn't include specific device interface. It should compile on any system and can be used as a template. Device interface is documented in common CO_driver.h file.
 
 There are many advantages of sharing the base code such as this. For the driver developers, who wish to share and cooperate, I recommend the following approach:
 1. Make own git repo for the Device specific demo project on the Github or somewhere.
 2. Add https://github.com/CANopenNode/CANopenNode into your project (or at side of your project). For example, include it in your project as a git submodule: `git submodule add https://github.com/CANopenNode/CANopenNode`
 3. Add specific driver and other files.
-4. Add description of new device into this file (deviceSupport.md) and make a pull request to CANopenNode. Alternatively create an issue for new device on https://github.com/CANopenNode/CANopenNode/issues.
-5. Make a demo folder, which contains project files, etc., necessary to run the demo.
-6. Write a good README.md file, where you describe your project, specify demo board, tools used, etc.
+4. Write a good README.md file, where you describe your project, specify demo board, tools used, etc.
+5. Optionally prepare a demoDevice in [CANopenDemo](https://github.com/CANopenNode/CANopenDemo) repository and run the tests.
+6. Share your work: add description of new device into this file (deviceSupport.md) and make a pull request to CANopenNode. Alternatively create an issue for new device on https://github.com/CANopenNode/CANopenNode/issues.
+7. Offer your work for inclusion under the CANopenNode project and become its developer. It will increase code quality and functionality.
 
 
 Linux
 -----
 * CANopenNode integration with Linux socketCAN with master command interface. SocketCAN is part of the Linux kernel.
-* https://github.com/CANopenNode/CANopenNode (this project).
-* CANopenNode version: (will be v2.0)
+* https://github.com/CANopenNode/CANopenLinux.
+* CANopenNode version: (v4.0)
 * Status: stable
 * Features: OD storage, error counters, master (SDO client, LSS master, NMT master)
 * Systems: Linux PC, Raspberry PI, etc.
 * Development tools: Linux
-* Information updated 2020-02-14
+* Information updated 2021-05-21
 
 
 PIC32, dsPIC30, dsPIC33
 -----------------------
 * CANopenNode integration with 16 and 32 bit PIC microcontrollers from Microchip.
 * https://github.com/CANopenNode/CANopenPIC
-* CANopenNode version: (near v2.0)
+* CANopenNode version: (v4.0)
 * Status: stable
-* Features: OD storage, SDO client demo for PIC32, error counters
+* Features: OD storage for PIC32, SDO client demo for PIC32, error counters
 * Development tools: MPLAB X
-* Demo hardware: Explorer 16 from Microchip
-* Information updated 2020-02-14
+* Demo hardware: Explorer 16 from Microchip, [Max32 board](https://reference.digilentinc.com/reference/microprocessor/max32/start)
+* Information updated 2021-05-07
 
 
 Zephyr RTOS

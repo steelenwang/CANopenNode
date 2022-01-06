@@ -38,11 +38,10 @@ extern "C" {
 
 /**
  * @defgroup CO_LSSslave LSS Slave
- * @ingroup CO_CANopen_305
- * @{
- *
  * CANopen Layer Setting Service - slave protocol.
  *
+ * @ingroup CO_CANopen_305
+ * @{
  * The slave provides the following services
  * - node selection via LSS address
  * - node selection via LSS fastscan
@@ -164,10 +163,10 @@ CO_ReturnError_t CO_LSSslave_init(
         uint8_t                *pendingNodeID,
         CO_CANmodule_t         *CANdevRx,
         uint16_t                CANdevRxIdx,
-        uint32_t                CANidLssMaster,
+        uint16_t                CANidLssMaster,
         CO_CANmodule_t         *CANdevTx,
         uint16_t                CANdevTxIdx,
-        uint32_t                CANidLssSlave);
+        uint16_t                CANidLssSlave);
 
 /**
  * Process LSS communication
